@@ -9,14 +9,12 @@ vim.g.have_nerd_font = false
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
+-- NOTE: For more options, you can see `:help option-list`
 
 -- Make line numbers default
 vim.opt.number = true
--- You can also add relative line numbers, to help with jumping.
---  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+-- Set releative line numbers
+vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -96,7 +94,7 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- [[ Basic Autocommands ]]
+-- [[ Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
 -- Highlight when yanking (copying) text
@@ -110,6 +108,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- Auto save on InsertLeave and TextChanged
+vim.api.nvim_create_autocmd({ 'InsertLeave', 'TextChanged' }, {
+  desc = 'Auto save file on exit or text change detected',
+  group = vim.api.nvim_create_augroup('jrico', { clear = true }),
+  callback = function()
+    vim.cmd("silent! write")
+  end,
+})
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -127,7 +133,7 @@ vim.opt.rtp:prepend(lazypath)
 --    :Lazy update
 --  Or press U in the Lazy dashboard
 
--- NOTE  Here is where you install your plugins.
+-- NOTE:  Here is where you install your plugins.
 --
 --
 require('lazy').setup({

@@ -13,7 +13,8 @@ return { -- Autoformat
     },
   },
   opts = {
-    notify_on_error = false,
+    log_level = vim.log.levels.DEBUG,
+    notify_on_error = true,
     format_on_save = function(bufnr)
       -- Disable "format_on_save lsp_fallback" for languages that don't
       -- have a well standardized coding style. You can add additional
@@ -30,6 +31,8 @@ return { -- Autoformat
         lsp_format = lsp_format_opt,
       }
     end,
+
+    -- NOTE: Asign formatters to filetypes here
     formatters_by_ft = {
       lua = { 'stylua' },
       -- Conform can also run multiple formatters sequentially
