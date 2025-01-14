@@ -10,6 +10,9 @@ vim.g.have_nerd_font = false
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: For more options, you can see `:help option-list`
+--
+-- Auto write files on modification
+-- vim.opt.autowriteall = true
 
 -- Make line numbers default
 vim.opt.number = true
@@ -108,14 +111,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- Auto save on InsertLeave and TextChanged
-vim.api.nvim_create_autocmd({ 'InsertLeave', 'TextChanged' }, {
-  desc = 'Auto save file on exit or text change detected',
-  group = vim.api.nvim_create_augroup('jrico', { clear = true }),
-  callback = function()
-    vim.cmd("silent! write")
-  end,
-})
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
