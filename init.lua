@@ -5,8 +5,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
-
+vim.g.have_nerd_font = true
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: For more options, you can see `:help option-list`
@@ -14,6 +13,10 @@ vim.g.have_nerd_font = false
 -- Auto write files on modification
 -- vim.opt.autowriteall = true
 
+-- Set text wrap to 80 characters, invoke with ':gc'
+vim.opt.textwidth = 80
+
+-- vim.opt.formatoptions = 'tc'
 -- Make line numbers default
 vim.opt.number = true
 -- Set releative line numbers
@@ -97,6 +100,8 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Quick write
+vim.keymap.set('n', '<leader>w', '<cmd>w<CR>', { desc = '[W]rite' })
 -- [[ Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -148,7 +153,7 @@ require('lazy').setup({
   -- you can continue same window with `<space>sr` which resumes last telescope search
 }, {
   ui = {
-    -- If you are using a Nerd Font: set icons to an empty table which will use the
+    -- If  using a Nerd Font: set icons to an empty table which will use the
     -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
     icons = vim.g.have_nerd_font and {} or {
       cmd = '⌘',
