@@ -25,7 +25,9 @@ External Requirements:
 - [Node](https://nodejs.org/en/download)
   - Needed by Mason to install various LSPs and Formatters
 - [ripgrep](https://github.com/BurntSushi/ripgrep#installation)
+  - NOT AVAILABLE ON AL2023! Install from source
 - Clipboard tool (xclip/xsel/win32yank or other depending on the platform)
+  - NOT AVAILABLE ON AL2023! Install from source
 - A [Nerd Font](https://www.nerdfonts.com/):
   - `vim.g.have_nerd_font` in `init.lua` is set to true by default
 - Language Setup:
