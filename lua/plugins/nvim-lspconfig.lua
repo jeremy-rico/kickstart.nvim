@@ -142,10 +142,11 @@ return {
       -- This is used for automatically installing lsps on a new machine.
       -- You can install servers directly with Mason. You don't have to put them here unless you are
       -- changing settings like in the lua example
-      dockerls = {},
-      docker_compose_language_service = {},
+      -- dockerls = {},
+      -- docker_compose_language_service = {},
       pyright = {},
-      yamlls = {},
+      eslint = {},
+      -- yamlls = {},
       jsonls = {},
       -- clangd = {},
       -- gopls = {},
