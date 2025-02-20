@@ -146,6 +146,7 @@ return {
       -- docker_compose_language_service = {},
       pyright = {},
       eslint = {},
+      tailwindcss = {},
       -- yamlls = {},
       jsonls = {},
       -- clangd = {},
